@@ -7,8 +7,6 @@
   with_items:
     - '/usr/local/sbin'
     - '/usr/local/bin'
-    - '/usr/sbin'
-    - '/usr/bin'
     - '/sbin'
     - '/bin'
     - '{{os_env_extra_user_paths}}'
@@ -23,4 +21,4 @@
 
 - name: change su-binary to only be accessible to user and group root
   file: dest='/bin/su' owner=root group=root mode=0750
-  when: os_security_users_allow != None
+  when: ansible_distribution != 'CoreOS' and os_security_users_allow != None
