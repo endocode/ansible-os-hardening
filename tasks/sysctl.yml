@@ -24,6 +24,7 @@
     state: present
     reload: yes
     ignoreerrors: yes
+    sysctl_file: /etc/sysctl.d/os-hardening.conf
   with_dict: '{{ sysctl_config }}'
 
 - name: Change various sysctl-settings on rhel-hosts, look at the sysctl-vars file for documentation
