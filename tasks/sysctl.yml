@@ -1,7 +1,7 @@
 ---
 - name: protect sysctl.conf
   file: path='/etc/sysctl.conf' owner=root group=root mode=0440
-  when: ansible_distribution != 'CoreOS'
+  when: ansible_distribution != 'Container Linux by CoreOS'
 
 - name: NSA 2.2.4.1 Set Daemon umask, do config for rhel-family
   template: src='rhel_sysconfig_init.j2' dest='/etc/sysconfig/init' owner=root group=root mode=0544

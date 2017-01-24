@@ -21,4 +21,4 @@
 
 - name: change su-binary to only be accessible to user and group root
   file: dest='/bin/su' owner=root group=root mode=0750
-  when: ansible_distribution != 'CoreOS' and os_security_users_allow != None
+  when: ansible_distribution != 'Container Linux by CoreOS' and os_security_users_allow != None
